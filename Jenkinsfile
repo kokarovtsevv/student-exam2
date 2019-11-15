@@ -15,7 +15,7 @@ pipeline {
       }
       stage('Testing app') {
          steps {
-            sh 'pip install -e '.[test]''
+            sh "pip install -e '.[test]'"
             sh 'coverage run -m pytest'
             sh 'coverage report'
          }
