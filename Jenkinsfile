@@ -4,12 +4,12 @@ pipeline {
    stages {
       stage('Installing app') {
          steps {
-            sh 'python3 -m venv venv && . venv/bin/activate && pip3 install -e .'
+            sh 'sudo pip install .'
          }
       }
       stage('Testing app') {
          steps {
-            sh ". venv/bin/activate && pip3 install -e '.[test]' && coverage run -m pytest && coverage report"
+            sh "sudo pip install -e '.[test]' && coverage run -m pytest && coverage report"
          }
       }
       stage('Building and pushing image') {
